@@ -4,7 +4,7 @@ body {
 
   }
   header{
-   
+    display: inline;
   }
   h1{
     text-align: center;
@@ -38,6 +38,9 @@ body {
     align-items: end;
   }
   img{
-    width: 300px;
+    width: 10rem;
     height: auto;
+  }
+  .logo{
+    width: 200px;
   }
