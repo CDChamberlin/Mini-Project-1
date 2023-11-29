@@ -1,4 +1,8 @@
 let productList = [];
+/* const bootstrap = require('bootstrap')
+const myCarousel = document.querySelector('#carouselExampleCaptions')
+const carousel = new bootstrap.Carousel(myCarousel) */
+
 function addCard(img, title, price, description) {
   const template = document
     .getElementById("card-template")

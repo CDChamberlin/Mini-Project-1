@@ -11,7 +11,7 @@ body {
     display: grid;
   }
   #card-list{
-    display: grid;
+    display: flex;
   }
   .card {
     padding: 10px;

@@ -1,34 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta author="Collin Chamberlin">
-    <link rel="stylesheet" href="css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta author="Collin Chamberlin" />
+    <link rel="stylesheet" href="css/style.css" />
     <title>Main Store</title>
-</head>
-<body>
-    <header> 
-      <img class="logo" src="https://placehold.co/200" alt="Logo" height="200" width="200">
+  </head>
+  <body>
+    <header>
+      <img
+        class="logo"
+        src="https://placehold.co/200"
+        alt="Logo"
+        height="200"
+        width="200"
+      />
       <h1>My Fake Store</h1>
     </header>
-    <template id="card-template">
-        <article class="card col-lg-3 col-md-6 col-sm-12">
-          <img src="..." class="card-img-top img-fluid" alt="..." />
-          <section class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle" id="price"></h6>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-          </section>
-        </article>
-      </template>
-      <div id="gallery" class="container">
-        <div id="card-list" class="row row-cols-1 row-cols-md-2 g-4"></div>
+    <!-- <article id="featured">
+      <div
+        id="carouselExampleCaptions"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="..." class="d-block w-100" alt="..." />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>First slide label</h5>
+              <p>
+                Some representative placeholder content for the first slide.
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="..." class="d-block w-100" alt="..." />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Second slide label</h5>
+              <p>
+                Some representative placeholder content for the second slide.
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="..." class="d-block w-100" alt="..." />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Third slide label</h5>
+              <p>
+                Some representative placeholder content for the third slide.
+              </p>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-     <!--  <label for="Catagories" > Product Selector</label>
+    </article> -->
+    <template id="card-template">
+      <article class="card col-lg-3 col-md-6 col-sm-12">
+        <img src="..." class="card-img-top img-fluid" alt="..." />
+        <section class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <h6 class="card-subtitle" id="price"></h6>
+          <p class="card-text">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </p>
+        </section>
+      </article>
+    </template>
+    <div id="gallery" class="container">
+      <div id="card-list" class="row row-cols-1 row-cols-md-2 g-4"></div>
+    </div>
+    <!--  <label for="Catagories" > Product Selector</label>
       <select name="Catagories" id="Catagories" class="dropdown" onchange="filterCatagories(event)">
         <option value="all Catagories" defaultValue>All Catagories</option>
         <option value="electronics">Electronics</option>
@@ -36,6 +119,21 @@
         <option value="men's clothing">Men's Clothing</option>
         <option value="women's clothing">Women's Clothing</option>
       </select> -->
-      <script src="js/script.js"></script>
-</body>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/script.js"></script>
+  </body>
 </html>
