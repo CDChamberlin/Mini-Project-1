@@ -1,0 +1,37 @@
+header{
+    display: inline-flex;
+    font-size: 2rem;
+    padding: 10px;
+}
+header img{
+    padding: 20px;
+}
+
+form label{ 
+    font-size: 1rem;
+    line-height: 1.125rem;
+}
+br{
+    margin-bottom: .25rem;
+}
+article{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+}
+#submit{
+    background-color: green;
+    color: whitesmoke;
+    font-size: 1.25rem;
+    line-height: normal;
+    text-align: center;
+    width: 80%;
+}
+#cancel{
+    background-color: red;
+    color: whitesmoke;
+}
