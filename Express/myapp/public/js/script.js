@@ -1,12 +1,16 @@
 let productList = [];
+/* const bootstrap = require('bootstrap')
+const myCarousel = document.querySelector('#carouselExampleCaptions')
+const carousel = new bootstrap.Carousel(myCarousel) */
+
 function addCard(img, title, price, description) {
   const template = document
-    .getElementById("card-template")
+    .getElementById("small-card")
     .content.cloneNode(true);
   // populate the template
   if (isValidHttpUrl(img)) {
-    template.querySelector(".card-img-top").src = img;
-    template.querySelector(".card-img-top").alt = description;
+    template.getElementById("small-card-img").src = img;
+    template.getElementById("small-card-img").alt = description;
   }
   template.querySelector(".card-title").innerText = title;
   template.querySelector(".card-subtitle").innerText = `$ ${price.toFixed(2)}`;
