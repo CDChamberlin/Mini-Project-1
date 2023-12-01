@@ -4,7 +4,8 @@ body {
 
   }
   header{
-    display: inline;
+    display: inline-flex;
+    flex-direction: row;
   }
   h1{
     text-align: center;

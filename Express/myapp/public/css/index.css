@@ -2,6 +2,16 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #e3f2fd;
 }
+header{
+  display: inline;
+}
+h1{
+  text-align: center;
+  display: grid;
+} 
+ul .navbar-nav{
+  display: inline;
+}
 #card-list{
   display: flex;
   flex-direction: row;

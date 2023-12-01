@@ -37,9 +37,9 @@ function isValidHttpUrl(string) {
 }
 console.log(productList);
 function filterCatagories(event) {
-  //dropdown selected.
+  console.log("Hi")
   const list = document.getElementById("card-list");
-  const selected = event.target.value; // Gets the selections from the dropdown menu.
+  const selected = event; // Gets the selections from the dropdown menu.
   while (list.hasChildNodes()) list.removeChild(list.firstChild);
 
   if (selected === "all Catagories") {
