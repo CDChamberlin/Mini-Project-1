@@ -1,17 +1,44 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #e3f2fd;
+  display: flex;
+  flex-direction: column;
 }
 header{
-  display: inline;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  background-color: aqua;
 }
 h1{
   text-align: center;
   display: grid;
-} 
-ul .navbar-nav{
-  display: inline;
 }
+.navbar-nav{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border: 2px solid blue;
+  text-decoration: none;
+}
+nav a:hover{
+  background: blueviolet;
+  width: 5rem;
+  color: white;
+}
+carocel{
+  transform: scale(1.25);
+  z-index: 1;
+}
+#left-card{
+
+}
+#right-card{
+  transform: translate(x, 5rem);
+}
+
 #card-list{
   display: flex;
   flex-direction: row;
@@ -19,17 +46,25 @@ ul .navbar-nav{
 .card {
   padding: 10px;
   max-width: fit-content;
+  margin: 20px;
+
+}
+.card-title{
+  border: 2px solid green;
+  line-height: 2rem;
+  font-weight: bold;
+  font-size: larger;
 }
 
-.card-title {
-  font-weight: 600;
-  font-size: 2em;
-  padding: 0 0 10px 0;
-}
 .card-subtitle{
   font-size: 1.5rem;
   font-style: italic;
-  padding: 0 0 10px 0;
+  padding: 0 1rem 1rem 0;
+  position:static;
+  bottom: 0;
+  right: 0;
+  border: 2px solid gold;
+  text-align: end;
 }
 .card-description {
   font-weight: 400;
@@ -41,9 +76,7 @@ ul .navbar-nav{
   align-items: end;
 }
   img{
-    width: 10rem;
+    /* width: 10rem; */
     height: auto;
   }
-  .logo{
-    width: 200px;
-  }
+  

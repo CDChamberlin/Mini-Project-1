@@ -1,11 +1,14 @@
 let productList = [];
-/* const bootstrap = require('bootstrap')
-const myCarousel = document.querySelector('#carouselExampleCaptions')
-const carousel = new bootstrap.Carousel(myCarousel) */
+let loggedIn = false
+const mainCard = loggedIn ? "small-card" | "featured-card"
 
-function addCard(img, title, price, description) {
+const myCarousel = document.querySelector('#carouselExample')
+const carousel = new bootstrap.Carousel(myCarousel) 
+
+function addCard(img, title, price, description, id) {
+  console.log(id)
   const template = document
-    .getElementById("small-card")
+    .getElementById(id)
     .content.cloneNode(true);
   // populate the template
   if (isValidHttpUrl(img)) {
@@ -22,7 +25,7 @@ fetch("https://fakestoreapi.com/products")
   .then((res) => res.json())
   .then((json) => {
     json.forEach((element) => {
-      addCard(element.image, element.title, element.price, element.description);
+      addCard(element.image, element.title, element.price, element.description, mainCard);
       productList.push(element);
     });
   });
@@ -44,7 +47,7 @@ function filterCatagories(event) {
 
   if (selected === "all Catagories") {
     productList.forEach((element) => {
-      addCard(element.image, element.title, element.price, element.description);
+      addCard(element.image, element.title, element.price, element.description, mainCard);
     });
   } else {
     let updated = productList.filter((item) => {
@@ -54,4 +57,10 @@ function filterCatagories(event) {
       addCard(element.image, element.title, element.price, element.description);
     });
   }
+}
+
+function featuredCard(){
+  let numbers = [Math.floor(Math.random()*7),Math.floor(Math.random()*(13-8)+8), Math.floor(Math.random()*(19-14)+14)]
+  //numbers.forEach(item =>  )
+
 }
