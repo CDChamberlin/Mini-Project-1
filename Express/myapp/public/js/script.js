@@ -1,6 +1,6 @@
 let productList = [];
 let loggedIn = false
-const mainCard = loggedIn ? "small-card" | "featured-card"
+const mainCard = loggedIn ? "small-card" : "featured-card"
 
 const myCarousel = document.querySelector('#carouselExample')
 const carousel = new bootstrap.Carousel(myCarousel) 
