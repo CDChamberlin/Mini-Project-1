@@ -1,7 +1,12 @@
+.background{
+    background-color: #e3f2fd;
+}
 header{
     display: inline-flex;
     font-size: 2rem;
     padding: 10px;
+    justify-content: space-between;
+    align-items: center;
 }
 header img{
     padding: 20px;
