@@ -61,11 +61,11 @@
         </ul>
       </div>
     </nav>
-    <div id="carouselFeatured" class="carousel slide">
-      <div class="carousel-inner">
-        <span class="carousel-item" id="carousel-item0"> </span>
-        <span class="carousel-item active" id="carousel-item1"> </span
-        ><span class="carousel-item" id="carousel-item2"> </span>
+    <div id="carouselFeatured" class="carousel slide align-items-center">
+      <div class="carousel-inner d-flex justify-content-center mx-auto">
+        <div class="carousel-item" id="carousel-item0"></div>
+        <div class="carousel-item active" id="carousel-item1"></div>
+        <div class="carousel-item" id="carousel-item2"></div>
       </div>
       <button
         class="carousel-control-prev"
@@ -87,23 +87,33 @@
       </button>
     </div>
     <template id="featured-card">
-      <article class="card col-lg-3 col-md-6 col-sm-12" style="width: 18rem">
+      <article
+        class="card col-lg-3 col-md-6 col-sm-12"
+        data-toggle="modal"
+        data-target="#cardModal"
+        onclick="openCardModal(this)"
+      >
         <img
           src="..."
-          class="card-img-top img-fluid"
+          class="card-img-top"
           alt="..."
           id="featured-card-img"
+          data-card-id="1"
         />
         <section class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle" id="price"></h6>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+          <h5 class="card-title" data-card-title="Card title">Card title</h5>
+          <p
+            class="card-text"
+            hidden
+            data-card-description="Some quick example text..."
+          >
+            Some quick example text...
           </p>
+          <h6 class="card-subtitle" id="price" data-card-price="$0.00"></h6>
         </section>
       </article>
     </template>
+
     <template id="small-card">
       <div class="card mb-3" style="max-width: 400px">
         <div class="row g-0">
@@ -161,6 +171,45 @@
     ></script>
     <script src="js/script.js"></script>
   </body>
+
+  <div id="cardModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+      <article class="modal-content">
+        <header class="modal-header">
+          <h2 class="modal-title" id="cardModalLabel">Card Details</h2>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </header>
+        <section class="modal-body" id="cardModalBody">
+          <!-- Dynamic content will be added here -->
+        </section>
+        <footer class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-success"
+            id="addToCartButton"
+            data-dismiss="modal"
+          >
+            Add to Cart
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            id="closeButton"
+            data-dismiss="modal"
+          >
+            Close
+          </button>
+        </footer>
+      </article>
+    </div>
+  </div>
 </html>
 
 <!--
