@@ -33,21 +33,16 @@ nav a:hover {
   width: 5rem;
   color: white;
 }
+ 
 .carousel {
   display: flex;
-  flex-direction: column; /* Align items vertically */
-  align-items: center;
   justify-content: space-between;
-  height: 40vh; /* Adjust to your preference */
+  height: 40vh; 
   padding: 15px;
-}
-
-.carousel-inner {
-  width: 100%;
-}
+} 
 
 .carousel-item {
-  text-align: center; /* Center content inside each item */
+  text-align: center; 
 }
 
 .carousel-item img {
