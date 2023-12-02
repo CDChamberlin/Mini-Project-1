@@ -33,37 +33,28 @@
               class="nav-link active"
               aria-current="page"
               href="#"
-              onclick="filterCategories('all Catagories')"
+              onclick="filterCategories(event)"
             >
               All Products</a
             >
           </li>
           <li class="nav-item">
-            <a
-              class="nav-link"
-              onclick="filterCategories('electronics')"
-              href="#"
+            <a class="nav-link" onclick="filterCategories(event)" href="#"
               >Electronics</a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" onclick="filterCategories('jewelery')" href="#"
-              >Jewelry</a
+            <a class="nav-link" onclick="filterCategories(event)" href="#"
+              >Jewelery</a
             >
           </li>
           <li class="nav-item">
-            <a
-              class="nav-link"
-              onclick="filterCategories(`men's clothing`)"
-              href="#"
+            <a class="nav-link" onclick="filterCategories(event)" href="#"
               >Men's Clothing</a
             >
           </li>
           <li class="nav-item">
-            <a
-              class="nav-link"
-              onclick="filterCategories(`women's clothing`)"
-              href="#"
+            <a class="nav-link" onclick="filterCategories(event)" href="#"
               >Women's Clothing</a
             >
           </li>
@@ -72,27 +63,37 @@
     </nav>
     <div id="carouselFeatured" class="carousel slide">
       <div class="carousel-inner">
-       <span class="carousel-item" id="carousel-item0">
-          
-       </span>
-        <span class="carousel-item active" id="carousel-item1">
-          
-        </span><span class="carousel-item" id="carousel-item2">
-          
-        </span>
+        <span class="carousel-item" id="carousel-item0"> </span>
+        <span class="carousel-item active" id="carousel-item1"> </span
+        ><span class="carousel-item" id="carousel-item2"> </span>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselFeatured" data-bs-slide="prev">
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselFeatured"
+        data-bs-slide="prev"
+      >
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselFeatured" data-bs-slide="next">
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselFeatured"
+        data-bs-slide="next"
+      >
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
     </div>
     <template id="featured-card">
       <article class="card col-lg-3 col-md-6 col-sm-12" style="width: 18rem">
-        <img src="..." class="card-img-top img-fluid" alt="..." id="featured-card-img"/>
+        <img
+          src="..."
+          class="card-img-top img-fluid"
+          alt="..."
+          id="featured-card-img"
+        />
         <section class="card-body">
           <h5 class="card-title">Card title</h5>
           <h6 class="card-subtitle" id="price"></h6>
@@ -125,7 +126,15 @@
               lead-in to additional content. This content is a little bit
               longer.
             </p>
-            <span><button type="button" onclick="addToCart()" class="btn btn-success"></button></span>
+            <span
+              ><button
+                type="button"
+                onclick="addToCart()"
+                class="btn btn-success"
+              >
+                Add to Cart
+              </button></span
+            >
             <h6 class="card-subtitle" id="price"></h6>
           </div>
         </div>

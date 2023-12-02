@@ -7,28 +7,14 @@ const mainCard = loggedIn ? "featured-card" : "small-card";
 const myCarousel = document.querySelector("#carouselFeatured");
 const carousel = new bootstrap.Carousel(myCarousel);
 
-// fetch("https://fakestoreapi.com/products")
-//   .then((res) => res.json())
-//   .then((json) => {
-//     productList = json;
-//     // Display the data using the createCard function
-//     productList.forEach((element) => {
-//       createCard(element, mainCard);
-//     });
-//     // Call featuredCard after the data is fetched
-//     featuredCard();
-//   })
-//   .catch((error) => {
-//     console.error("Error fetching data:", error);
-//   });
-
 fetch("https://fakestoreapi.com/products")
   .then((res) => res.json())
   .then((json) => {
     productList = json;
     // Display the data using the createCard function
     productList.forEach((element) => {
-      createCard(element, mainCard);
+      const card = createCard(element, mainCard);
+      cards.push(card);
     });
     // Call featuredCard after the data is fetched
     featuredCard();
@@ -38,26 +24,29 @@ fetch("https://fakestoreapi.com/products")
     console.error("Error fetching data:", error);
   });
 
-function createCard(item, id) {
-  const template = document.getElementById(id).content.cloneNode(true);
-  // populate the template
-  if (isValidHttpUrl(item.image)) {
-    template.getElementById(id + "-img").src = item.image;
-    template.getElementById(id + "-img").alt = item.description;
+  function createCard(item, id) {
+    const template = document.getElementById(id).content.cloneNode(true);
+    // populate the template
+    if (isValidHttpUrl(item.image)) {
+      template.getElementById(id + "-img").src = item.image;
+      template.getElementById(id + "-img").alt = item.description;
+    }
+    template.querySelector(".card-title").innerText = item.title;
+    template.querySelector(".card-subtitle").innerText = `$ ${item.price.toFixed(2)}`;
+    template.querySelector(".card-text").innerText = item.description;
+    
+    // Add data attribute for category
+    template.querySelector(".card-text").setAttribute("data-category", item.category);
+  
+    return template.cloneNode(true); // Clone the template
   }
-  template.querySelector(".card-title").innerText = item.title;
-  template.querySelector(".card-subtitle").innerText = `$ ${item.price.toFixed(
-    2
-  )}`;
-  template.querySelector(".card-text").innerText = item.description;
-  cards.push(template);
-  return template;
-}
-function displayCards(cardArray) {
-  cardArray.forEach((card) =>
-    document.querySelector("#card-list").append(card)
-  );
-}
+  
+
+  function displayCards(cardArray) {
+    const cardList = document.querySelector("#card-list");
+    cardList.innerHTML = ""; // Clear the card list before appending new cards
+    cardArray.forEach((card) => cardList.appendChild(card.cloneNode(true)));
+  }
 
 function loadCards(item) {
   return createCard(item, "featured-card");
@@ -73,20 +62,33 @@ function isValidHttpUrl(string) {
 }
 
 function filterCategories(event) {
-  const list = document.getElementById("card-list");
-  const selected = event;
-  let updated = [];
-  while (list.hasChildNodes()) list.removeChild(list.firstChild);
+  const selected = event.target.innerText.toLowerCase();
+  const filteredProducts = selected === 'all products'
+    ? productList
+    : productList.filter((item) => item.category.toLowerCase() === selected);
 
-  if (selected === "all Catagories") {
-    updated = Array.from(cards);
-  } else {
-    updated = productList.filter((item) => {
-      return item.category === selected;
-    });
-  }
-  displayCards(updated);
+  displayFilteredCards(filteredProducts);
 }
+
+function displayFilteredCards(filteredProducts) {
+  const cardList = document.getElementById("card-list");
+  clearCardList(cardList);
+
+  filteredProducts.forEach((product) => {
+    const card = createCard(product, mainCard);
+    cardList.appendChild(card);
+  });
+}
+
+function clearCardList(cardList) {
+  while (cardList.hasChildNodes()) {
+    cardList.removeChild(cardList.firstChild);
+  }
+}
+
+
+
+
 
 function featuredCard() {
   let numbers = [
