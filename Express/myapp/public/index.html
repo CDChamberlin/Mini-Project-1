@@ -13,14 +13,38 @@
     </head>
     <body>
         <header>
-            <img
-                class="logo"
-                src="https://placehold.co/200"
-                alt="Logo"
-                height="200"
-                width="200"
-            />
-            <h1>My Fake Store</h1>
+            <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand" href="#">
+                    <img
+                        class="logo"
+                        src="https://placehold.co/200"
+                        alt="Logo"
+                        height="200"
+                        width="200"
+                    />
+                    My Fake Store
+                </a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link active" href="index.html"
+                            >Home <span class="sr-only">(current)</span></a
+                        >
+                        <a class="nav-item nav-link" href="about.html">About</a>
+                        <a class="nav-item nav-link" href="faq.html">FAQs</a>
+                    </div>
+                </div>
+            </nav>
         </header>
         <article id="featured">
             <div
@@ -90,6 +114,9 @@
             <option value="men's clothing">Men's Clothing</option>
             <option value="women's clothing">Women's Clothing</option>
         </select>
+        <footer>
+            <p>&copy; 2024 My Fake Store. All rights reserved.</p>
+        </footer>
         <script
             src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
