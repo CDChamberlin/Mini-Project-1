@@ -1,133 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta author="Collin Chamberlin" />
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="css/style.css" />
-        <title>Main Store</title>
-    </head>
-    <body>
-        <header>
-            <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="#">
-                    <img
-                        class="logo"
-                        src="https://placehold.co/200"
-                        alt="Logo"
-                        height="200"
-                        width="200"
-                    />
-                    My Fake Store
-                </a>
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#navbarNavAltMarkup"
-                    aria-controls="navbarNavAltMarkup"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-item nav-link active" href="index.html"
-                            >Home <span class="sr-only">(current)</span></a
-                        >
-                        <a class="nav-item nav-link" href="about.html">About</a>
-                        <a class="nav-item nav-link" href="faq.html">FAQs</a>
-                    </div>
-                </div>
-            </nav>
-        </header>
-        <article id="featured">
-            <div
-                id="carouselExampleCaptions"
-                class="carousel slide"
-                data-bs-ride="carousel"
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta author="Collin Chamberlin" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/index.css" />
+    <title>Main Store</title>
+  </head>
+  <body>
+    <header>
+      <span class="logo">
+        <img class="logo" src="https://placehold.co/100" alt="Logo" />
+      </span>
+      <span>
+        <h1>My Fake Store</h1>
+      </span>
+      <span>
+        <a class="btn btn-lg btn-success" href="login.html">Log-In</a>
+      </span>
+    </header>
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              aria-current="page"
+              href="#"
+              onclick="filterCategories(event)"
             >
-                <div class="carousel-indicators"></div>
-                <div class="carousel-inner"></div>
-                <button
-                    class="carousel-control-prev"
-                    type="button"
-                    data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide="prev"
-                >
-                    <span
-                        class="carousel-control-prev-icon"
-                        aria-hidden="true"
-                    ></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button
-                    class="carousel-control-next"
-                    type="button"
-                    data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide="next"
-                >
-                    <span
-                        class="carousel-control-next-icon"
-                        aria-hidden="true"
-                    ></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+              All Products</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" onclick="filterCategories(event)" href="#"
+              >Electronics</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" onclick="filterCategories(event)" href="#"
+              >Jewelery</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" onclick="filterCategories(event)" href="#"
+              >Men's Clothing</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" onclick="filterCategories(event)" href="#"
+              >Women's Clothing</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div id="carouselFeatured" class="carousel slide align-items-center">
+      <div class="carousel-inner d-flex justify-content-center mx-auto">
+        <div class="carousel-item" id="carousel-item0"></div>
+        <div class="carousel-item active" id="carousel-item1"></div>
+        <div class="carousel-item" id="carousel-item2"></div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselFeatured"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselFeatured"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <template id="featured-card">
+      <article
+        class="card col-lg-3 col-md-6 col-sm-12"
+        data-toggle="modal"
+        data-target="#cardModal"
+        onclick="openCardModal(this)"
+      >
+        <img
+          src="..."
+          class="card-img-top"
+          alt="..."
+          id="featured-card-img"
+          data-card-id="1"
+        />
+        <section class="card-body">
+          <h5 class="card-title" data-card-title="Card title">Card title</h5>
+          <p
+            class="card-text"
+            hidden
+            data-card-description="Some quick example text..."
+          >
+            Some quick example text...
+          </p>
+          <h6 class="card-subtitle" id="price" data-card-price="$0.00"></h6>
+        </section>
+      </article>
+    </template>
+
+    <template id="small-card">
+      <div class="card mb-3" style="max-width: 400px">
+        <div class="row g-0">
+          <div class="col-4">
+            <img
+              src="..."
+              class="img-fluid rounded-start"
+              alt="..."
+              id="small-card-img"
+            />
+          </div>
+          <div class="col-8">
+            <div class="card-body">
+              <h6 class="card-title">Card title</h6>
             </div>
-        </article>
-        <template id="card-template">
-            <article class="card col-lg-3 col-md-6 col-sm-12">
-                <img
-                    src="..."
-                    class="card-img-top img-fluid"
-                    alt="..."
-                    id="small-card-img"
-                />
-                <section class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <h6 class="card-subtitle" id="price"></h6>
-                    <p class="card-text">
-                        Some quick example text to build on the card title and
-                        make up the bulk of the card's content.
-                    </p>
-                </section>
-            </article>
-        </template>
-        <div id="gallery" class="container">
-            <div id="card-list" class="row row-cols-1 row-cols-md-2 g-4"></div>
+          </div>
+          <div class="row g-0">
+            <p class="card-text">
+              This is a wider card with supporting text below as a natural
+              lead-in to additional content. This content is a little bit
+              longer.
+            </p>
+            <span
+              ><button
+                type="button"
+                onclick="addToCart()"
+                class="btn btn-success"
+              >
+                Add to Cart
+              </button></span
+            >
+            <h6 class="card-subtitle" id="price"></h6>
+          </div>
         </div>
-        <label for="Categories"> Product Selector</label>
-        <select
-            name="Categories"
-            id="Categories"
-            class="dropdown"
-            onchange="filterCategoriesDebounced(event)"
-        >
-            <option value="all categories" defaultValue>All Categories</option>
-            <option value="electronics">Electronics</option>
-            <option value="jewelery">Jewelry</option>
-            <option value="men's clothing">Men's Clothing</option>
-            <option value="women's clothing">Women's Clothing</option>
-        </select>
-        <footer>
-            <p>&copy; 2024 My Fake Store. All rights reserved.</p>
+      </div>
+    </template>
+    <div id="gallery" class="container">
+      <div id="card-list" class="row"></div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/script.js"></script>
+  </body>
+
+  <div id="cardModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+      <article class="modal-content">
+        <header class="modal-header">
+          <h2 class="modal-title" id="cardModalLabel">Card Details</h2>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </header>
+        <section class="modal-body" id="cardModalBody">
+          <!-- Dynamic content will be added here -->
+        </section>
+        <footer class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-success"
+            id="addToCartButton"
+            data-dismiss="modal"
+          >
+            Add to Cart
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            id="closeButton"
+            data-dismiss="modal"
+          >
+            Close
+          </button>
         </footer>
-        <script
-            src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"
-        ></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-            crossorigin="anonymous"
-        ></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="js/script.js"></script>
-    </body>
+      </article>
+    </div>
+  </div>
 </html>
+
+
+<!--
+
+-->
